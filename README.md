@@ -50,273 +50,37 @@ The **AI Study Assistant** is a modern, feature-rich web application that levera
 - Smooth animations and transitions
 - Beautiful animated background with floating particles
 
-## 🛠️ Technology Stack
+## 🚀 Live Demo
 
-### Frontend
-- **HTML5**: Semantic structure
-- **CSS3**: Custom styling with gradients, glassmorphism, and animations
-- **JavaScript**: Interactive functionality and API integration
-- **Font Awesome**: Icons
+You can experience the full AI Study Assistant directly in your browser without any setup!
 
-### Backend
-- **Flask**: AI service endpoints (port 5000)
-- **Django**: User management and database operations (port 8000)
-- **Django REST Framework**: RESTful API
-
-### Database
-- **MySQL**: Relational database for user data, notes, quizzes, and flashcards
+<p align="center">
+  <a href="https://friendly-lolly-26a977.netlify.app/">🚀 <b>Launch Live Demo</b></a>
+</p>
 
 ## 📁 Project Structure
+
+This repository contains the frontend source code for the AI Study Assistant.
 
 ```
 project/
 ├── frontend/
-│   ├── css/
-│   │   └── style.css                 # Main stylesheet with blue/pink theme
-│   ├── js/
-│   │   ├── auth.js                   # Authentication logic
-│   │   ├── dashboard.js              # Dashboard functionality
-│   │   ├── explainer.js              # Concept explainer
-│   │   ├── summarizer.js             # Notes summarizer
-│   │   ├── quiz.js                   # Quiz generator
-│   │   └── flashcards.js             # Flashcards
-│   ├── login.html                    # Login/Register page
-│   ├── dashboard.html                # Main dashboard
-│   ├── explainer.html                # Concept explainer page
-│   ├── summarizer.html               # Summarizer page
-│   ├── quiz.html                     # Quiz generator page
-│   └── flashcards.html               # Flashcards page
-│
-├── flask_backend/
-│   ├── app.py                        # Flask application with API endpoints
-│   ├── ai_service.py                 # AI logic (mock implementation)
-│   └── requirements.txt              # Flask dependencies
-│
-├── django_backend/
-│   ├── study_assistant/
-│   │   ├── settings.py               # Django settings
-│   │   ├── urls.py                   # Main URL configuration
-│   │   ├── wsgi.py                   # WSGI configuration
-│   │   └── __init__.py
-│   ├── users/
-│   │   ├── models.py                 # Database models
-│   │   ├── views.py                  # API views
-│   │   ├── serializers.py            # DRF serializers
-│   │   ├── urls.py                   # App URL configuration
-│   │   ├── admin.py                  # Admin configuration
-│   │   ├── apps.py                   # App configuration
-│   │   └── __init__.py
-│   ├── manage.py                     # Django management script
-│   └── requirements.txt              # Django dependencies
-│
-└── database/
-    └── database_schema.sql           # MySQL database schema
+│   ├── css/                          # Stylesheets for the glassmorphic design
+│   ├── js/                           # Interactive logic and AI features
+│   ├── login.html                    # Welcome & Authentication portal
+│   ├── dashboard.html                # Main workspace
+│   ├── links-manager.html            # Demo launch portal (Redesigned)
+│   └── ...                           # Feature pages (Quiz, Summarizer, etc.)
+└── ...
 ```
 
-## 🚀 Installation & Setup
+## 🎯 Features
 
-### Prerequisites
-- Python 3.8 or higher
-- MySQL Server 5.7 or higher
-- pip (Python package manager)
-
-### Step 1: Clone or Download the Project
-```bash
-cd J:/project
-```
-
-### Step 2: Set Up MySQL Database
-
-1. Start MySQL server
-2. Open MySQL command line or MySQL Workbench
-3. Run the database schema:
-```bash
-mysql -u root -p < database/database_schema.sql
-```
-
-Or manually create the database:
-```sql
-CREATE DATABASE study_assistant_db;
-```
-
-4. Update database credentials in `django_backend/study_assistant/settings.py`:
-```python
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'study_assistant_db',
-        'USER': 'your_mysql_username',
-        'PASSWORD': 'your_mysql_password',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
-}
-```
-
-### Step 3: Set Up Flask Backend (AI Services)
-
-1. Navigate to Flask backend:
-```bash
-cd flask_backend
-```
-
-2. Create virtual environment (optional but recommended):
-```bash
-python -m venv venv
-venv\Scripts\activate  # On Windows
-# source venv/bin/activate  # On macOS/Linux
-```
-
-3. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-4. Run Flask server:
-```bash
-python app.py
-```
-
-Flask server will run on **http://localhost:5000**
-
-### Step 4: Set Up Django Backend (User Management)
-
-1. Open a new terminal and navigate to Django backend:
-```bash
-cd django_backend
-```
-
-2. Create virtual environment (optional but recommended):
-```bash
-python -m venv venv
-venv\Scripts\activate  # On Windows
-# source venv/bin/activate  # On macOS/Linux
-```
-
-3. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-4. Run migrations:
-```bash
-python manage.py makemigrations
-python manage.py migrate
-```
-
-5. Create superuser (optional, for admin panel):
-```bash
-python manage.py createsuperuser
-```
-
-6. Run Django server:
-```bash
-python manage.py runserver 8000
-```
-
-Django server will run on **http://localhost:8000**
-
-### Step 5: Open the Frontend
-
-1. Navigate to the frontend folder:
-```bash
-cd frontend
-```
-
-2. Open `login.html` in your browser:
-   - Double-click the file, or
-   - Use Live Server extension in VS Code, or
-   - Use Python's HTTP server:
-   ```bash
-   python -m http.server 5500
-   ```
-   Then open **http://localhost:5500/login.html**
-
-## 📡 API Endpoints
-
-### Flask Backend (AI Services) - Port 5000
-
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/explain` | POST | Explain a concept in simple language |
-| `/api/summarize` | POST | Summarize text and extract key points |
-| `/api/generate-quiz` | POST | Generate MCQ quiz |
-| `/api/generate-flashcards` | POST | Generate flashcards |
-| `/api/extract-pdf` | POST | Extract text from PDF |
-| `/api/health` | GET | Health check |
-
-### Django Backend (User Management) - Port 8000
-
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/register/` | POST | Register new user |
-| `/api/login/` | POST | User login |
-| `/api/notes/save/` | POST | Save notes |
-| `/api/quiz/save/` | POST | Save quiz results |
-| `/api/flashcards/save/` | POST | Save flashcards |
-| `/api/history/<user_id>/` | GET | Get user history |
-| `/api/health/` | GET | Health check |
-
-## 🎯 Usage
-
-1. **Register/Login**: Start by creating an account or logging in
-2. **Dashboard**: Access all features from the main dashboard
-3. **Concept Explainer**: Enter a topic to get simple explanations
-4. **Summarizer**: Upload notes or paste text to get summaries
-5. **Quiz**: Generate quizzes to test your knowledge
-6. **Flashcards**: Create flashcards for quick revision
-
-## 🔧 Configuration
-
-### Changing AI Service
-The current implementation uses mock AI responses. To integrate with a real AI service (like OpenAI):
-
-1. Open `flask_backend/ai_service.py`
-2. Replace mock functions with actual AI API calls
-3. Add API keys to environment variables
-4. Install additional dependencies (e.g., `openai`)
-
-### Database Configuration
-Update MySQL credentials in `django_backend/study_assistant/settings.py`
-
-## 🎨 Customization
-
-### Colors
-Edit CSS variables in `frontend/css/style.css`:
-```css
-:root {
-    --primary-blue: #1e3a8a;
-    --secondary-blue: #3b82f6;
-    --primary-pink: #ec4899;
-    --secondary-pink: #f472b6;
-}
-```
-
-## 🐛 Troubleshooting
-
-### MySQL Connection Error
-- Ensure MySQL server is running
-- Check database credentials in `settings.py`
-- Verify database exists: `SHOW DATABASES;`
-
-### CORS Error
-- Ensure both Flask and Django servers are running
-- Check CORS settings in both backends
-
-### Port Already in Use
-- Change Flask port in `flask_backend/app.py`: `app.run(port=5001)`
-- Change Django port: `python manage.py runserver 8001`
-
-## 📝 Notes
-
-- **Security**: This is a development setup. For production:
-  - Change `SECRET_KEY` in Django settings
-  - Set `DEBUG = False`
-  - Use environment variables for sensitive data
-  - Implement proper authentication (JWT tokens)
-  - Add HTTPS
-  
-- **AI Service**: Current implementation uses mock AI. Replace with actual AI API for production use.
+- **Concept Explainer**: Simplifies complex topics using AI.
+- **Notes Summarizer**: Converts long text into concise key points.
+- **Quiz Generator**: Auto-generates MCQs for active study.
+- **Flashcards**: Interactive study tools for revision.
+- **Modern UI**: A premium glassmorphic interface built with vanilla HTML/CSS/JS.
 
 ## 👨‍💻 Development
 
